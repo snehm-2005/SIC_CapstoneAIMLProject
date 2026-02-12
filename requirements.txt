@@ -3,3 +3,5 @@ pandas
 ipykernel
 sentence_transformers
 streamlit
+torch
+scikit-learn
