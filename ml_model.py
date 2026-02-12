@@ -3,15 +3,21 @@ import pandas as pd
 
 df=pd.read_csv('Review_samsung_afterML.csv')
 
+import streamlit as st
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+@st.cache_resource
+def load_model():
+    return SentenceTransformer("all-MiniLM-L6-v2")
 
-text_embeddings = model.encode(
-    df["Text"].astype(str).tolist(),
-    normalize_embeddings=True,
-    show_progress_bar=False
-)
+model = load_model()
+
+@st.cache_data
+def load_embeddings():
+    return np.load("embeddings.npy")
+
+text_embeddings = load_embeddings()
+
 
 print("Embeddings generated")
 print("Shape:", text_embeddings.shape)

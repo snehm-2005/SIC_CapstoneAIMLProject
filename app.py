@@ -153,17 +153,6 @@ div.stButton > button {
 """, unsafe_allow_html=True)
 # ==========================================
 
-
-
-#---------------- LOAD DATA ----------------
-df = pd.read_csv("Review_samsung_afterML.csv")
-
-
-
-
-
-
-
 # ---------------- SELECT BOX ----------------
 if "page" not in st.session_state:
     st.session_state.page = "list"
