@@ -5,3 +5,4 @@ sentence_transformers
 streamlit
 torch
 scikit-learn
+altair==4.2.2
